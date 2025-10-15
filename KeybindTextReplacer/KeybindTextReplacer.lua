@@ -1,5 +1,6 @@
 -- KeybindTextReplacer
 -- Replaces keybind text on action bars using a custom lookup table
+---@diagnostic disable: undefined-global
 
 local addonName, addon = ...
 
