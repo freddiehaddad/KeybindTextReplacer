@@ -1,133 +1,95 @@
 # Keybind Text Replacer
 
-A lightweight World of Warcraft addon that replaces keybind text on action bars using a customizable lookup table.
+Tired of seeing "a-Mouse Button 4" or "s-[" on your action bars? This addon lets you replace those messy keybind labels with whatever you want -- like "MB4" or "MWU".
 
-## Features
+Perfect for anyone who wants cleaner action bars or uses a custom keyboard layout.
 
-- **Custom Keybind Labels**: Replace any keybind text with your preferred abbreviations
-- **Exact Matching**: Only replaces exact matches from your lookup table
-- **Efficient Performance**: Uses event-driven hooks instead of continuous polling
-- **Simple Configuration**: Easy-to-edit lookup table in Lua
+## What Does It Do?
 
-## Installation
+This addon watches your action bars and swaps out keybind text based on a simple list you create. If you bind a spell to `Ctrl + Mouse Button 4`, WoW shows `c-mouse button 4` or `c-mouse...` -- but with this addon, you can make it show `CB4` (or anything else) instead.
 
-1. Download or clone this repository
-2. Copy the addon folder to your WoW AddOns directory:
+## Getting Started
 
-   ```text
-   World of Warcraft\_retail_\Interface\AddOns\
-   ```
+### 1. Install the Addon
 
-3. Restart WoW or type `/reload` in-game
+- Download this addon
+- Put the `KeybindTextReplacer` folder inside:
 
-## Configuration
+  ```text
+  World of Warcraft\_retail_\Interface\AddOns\
+  ```
 
-Edit the `keybindReplacements` table in `KeybindTextReplacer.lua` (lines 8-28) to add your custom mappings:
+- Type `/reload` in-game (or restart WoW)
+
+### 2. Customize Your Labels
+
+Open `KeybindTextReplacer.lua` and find the section that looks like this:
 
 ```lua
 local keybindReplacements = {
-    ["s-,"] = "LA",           -- Replace "s-," with "LA"
-    ["Mouse Wheel Down"] = "WD",  -- Replace "Mouse Wheel Down" with "WD"
-    ["["] = "LD",             -- Replace "[" with "LD"
-    -- Add your own mappings below:
-    ["OLD_TEXT"] = "NEW",
+    ["a-B"] = "AB",
+    ["Mouse Wheel Down"] = "WD",
+    ["c-A"] = "CA",
 }
 ```
 
-### How to Find Keybind Text
+Add your own entries! The left side is what WoW shows, the right side is what you want instead.
 
-1. Look at your action bars in-game to see the current keybind text
-2. If the text is truncated (e.g., "mouseb..."), you may need to:
-   - Temporarily enable debug mode (see below)
-   - Or check WoW's keybinding interface for the full name
-
-### Common Keybind Examples
+**Examples:**
 
 ```lua
--- Modifier keys
-["SHIFT"] = "S",
-["CTRL"] = "C",
-["ALT"] = "A",
-
--- Mouse buttons
-["Mouse Button 3"] = "M3",
-["Mouse Button 4"] = "M4",
-["Mouse Button 5"] = "M5",
-["Mouse Wheel Up"] = "MWU",
-["Mouse Wheel Down"] = "MWD",
-
--- Special characters
-["["] = "LB",
-["]"] = "RB",
-
--- Compound keybinds (with modifiers)
-["s-,"] = "LA",      -- Shift + comma
-["c-A"] = "CA",      -- Ctrl + A
-["a-B"] = "AB",      -- Alt + B
+["Mouse Button 4"] = "M4",          -- Show "M4" instead of "Mouse Button 4"
+["a-Mouse Button 5"] = "AM5",       -- Alt + Mouse 5
+["s-,"] = "Comma",                  -- Shift + comma
+["["] = "BracketLeft",              -- Left bracket key
+["5"] = "Five",                     -- Number 5
 ```
 
-## Usage
+### 3. Save and Reload
 
-Once installed, the addon works automatically:
+After editing the file, type `/reload` in WoW to see your changes.
 
-1. **On Login**: The addon loads and intercepts keybind text updates
-2. **Automatic Updates**: Keybinds are replaced whenever WoW updates them
-3. **Manual Trigger**: Type `/kbtr` to manually force an update
+## Tips
+
+### Finding the Original Text
+
+Just look at your action bars! WoW shows the current keybind on each button. If you can't see the full text (it's cut off), try typing `/kbtr` in-game to refresh everything.
+
+### Common Modifiers
+
+- `s-` = Shift
+- `c-` = Control  
+- `a-` = Alt
+
+So `s-5` means "Shift + 5", and `c-Mouse Button 4` means "Control + Mouse Button 4".
+
+### Exact Matches Only
+
+The text on the left must match *exactly* what WoW displays—including capital letters and spaces. If it doesn't match, the addon won't replace it.
 
 ## Commands
 
-- `/kbtr` - Manually force a keybind text update on all action bars
+- `/kbtr` - Force the addon to update all your action bars right now
 
-## How It Works
+## Why Use This?
 
-The addon uses a lightweight interception technique:
+- **Custom Keyboards**: If you use something like an Ergodox or split keyboard with your own layout, WoW's default labels might not make sense. Now you can show labels that match your actual keys.
+- **Cleaner Bars**: Replace long text like "Mouse Wheel Up" with "WU" to save space.
+- **Personal Preference**: Just want your bars to look the way *you* want? Go for it.
 
-1. Hooks into WoW's `SetText()` function for action bar hotkey elements
-2. When WoW tries to set keybind text, the addon intercepts it
-3. Checks if the text matches any entry in your lookup table
-4. Replaces the text before it's displayed (or leaves it unchanged)
+## Need Help?
 
-This approach is efficient because:
+### Nothing's changing on my bars
 
-- **No polling**: Only runs when WoW actually updates keybind text
-- **No continuous processing**: Events trigger updates, not timers
-- **Minimal overhead**: Simple table lookup and string comparison
+- Double-check that the left side of your entry matches the text WoW shows *exactly*
+- Try typing `/kbtr` to force an update
+- Make sure you saved the file and typed `/reload`
 
-## Troubleshooting
+### Addon won't load
 
-### Keybinds aren't changing
+- Make sure the folder is named `KeybindTextReplacer` (no extra spaces or characters)
+- Check that `KeybindTextReplacer.toc` is inside the folder
 
-- Make sure the text in your lookup table exactly matches what WoW displays
-- Text matching is case-sensitive and must be exact
-- Try typing `/kbtr` to manually force an update
+## That's It
 
-### Addon not loading
-
-- Check that the folder name doesn't have any special characters
-- Verify the `.toc` file is present and properly formatted
-- Look for error messages in-game (install BugSack/BugGrabber to see errors)
-
-### Performance concerns
-
-- The addon uses minimal resources and should not impact game performance
-- All replacements are done via efficient table lookups
-- No continuous frame updates or polling occurs
-
-## For Custom Keyboard Users
-
-This addon is particularly useful if you use a custom keyboard (like Corne, Ergodox, etc.) with custom key mappings. Since WoW displays the actual keys sent to the game, you can use this addon to show more meaningful labels that match your physical key layout.
-
-## Technical Details
-
-- **Interface Version**: 30300 (WoW Classic - Wrath of the Lich King)
-- **Dependencies**: None
-- **Language**: Lua
-- **Performance**: Event-driven, no continuous polling
-
-## License
-
-Free to use and modify for personal use.
-
-## Credits
-
-Created for custom keyboard enthusiasts who want cleaner keybind displays on their action bars.
+No complicated setup, no extra settings window—just edit a simple list and your bars will look however you want. Enjoy your cleaner UI!
