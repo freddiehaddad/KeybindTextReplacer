@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: Keybind Text Replacer
+## Notes: Replaces keybind text on action bars using a custom lookup table
+## Author: Freddie Haddad
+## Version: 1.0.0
+
+KeybindTextReplacer.lua
