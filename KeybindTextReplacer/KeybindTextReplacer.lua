@@ -8,6 +8,7 @@ local addonName, addon = ...
 -- Key = current keybind text, Value = what you want to replace it with
 local keybindReplacements = {
 	["a-B"] = "AB",
+	["c-B"] = "CB",
 
 	["c-A"] = "CA",
 	["c-S"] = "CS",
