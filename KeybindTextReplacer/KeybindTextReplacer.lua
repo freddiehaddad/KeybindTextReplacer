@@ -15,13 +15,26 @@ local keybindReplacements = {
 	["c-D"] = "CD",
 	["c-F"] = "CF",
 
+	["s-A"] = "SA",
+	["s-S"] = "SS",
+	["s-D"] = "SD",
+	["s-F"] = "SF",
+
+	["s-C"] = "SC",
+	["s-V"] = "SV",
+	["s-B"] = "SB",
+
 	["s-,"] = "LA",
+
 	["s-9"] = "LS",
-	["["] = "LD",
 	["s-["] = "LF",
+
+	["s-8"] = "LTab",
+	["["] = "LD",
 
 	["a-0"] = "A0",
 	["c-0"] = "C0",
+	["s-0"] = "S0",
 
 	["s-5"] = "LT",
 
@@ -32,22 +45,27 @@ local keybindReplacements = {
 	["Mouse Wheel Down"] = "WD",
 	["a-Mouse Wheel Down"] = "AWD",
 	["c-Mouse Wheel Down"] = "CWD",
+	["s-Mouse Wheel Down"] = "SWD",
 
 	["Mouse Wheel Up"] = "WU",
 	["a-Mouse Wheel Up"] = "AWU",
 	["c-Mouse Wheel Up"] = "CWU",
+	["s-Mouse Wheel Up"] = "SWU",
 
 	["Mouse Button 4"] = "B4",
 	["a-Mouse Button 4"] = "AB4",
 	["c-Mouse Button 4"] = "CB4",
+	["s-Mouse Button 4"] = "SB4",
 
 	["Mouse Button 5"] = "B5",
 	["a-Mouse Button 5"] = "AB5",
 	["c-Mouse Button 5"] = "CB5",
+	["s-Mouse Button 5"] = "SB5",
 
 	["Middle Mouse"] = "M",
 	["a-Middle Mouse"] = "AM",
 	["c-Middle Mouse"] = "CM",
+	["s-Middle Mouse"] = "SM",
 }
 
 -- Function to escape special pattern characters
