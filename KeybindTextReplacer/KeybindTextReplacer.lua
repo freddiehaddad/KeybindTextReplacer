@@ -7,26 +7,31 @@ local addonName, addon = ...
 -- LOOKUP TABLE - Add your key/value pairs here
 -- Key = current keybind text, Value = what you want to replace it with
 local keybindReplacements = {
+	["a-A"] = "AA",
 	["a-B"] = "AB",
-	["c-B"] = "CB",
+	["a-C"] = "AC",
+	["a-D"] = "AD",
+	["a-F"] = "AF",
+	["a-S"] = "AS",
 
 	["c-A"] = "CA",
+	["c-B"] = "CB",
 	["c-C"] = "CC",
-	["c-S"] = "CS",
 	["c-D"] = "CD",
 	["c-F"] = "CF",
+	["c-S"] = "CS",
 
 	["s-A"] = "SA",
 	["s-C"] = "SC",
-	["s-S"] = "SS",
 	["s-D"] = "SD",
 	["s-F"] = "SF",
+	["s-S"] = "SS",
 
-	["s-Z"] = "SZ",
-	["s-X"] = "SX",
+	["s-B"] = "SB",
 	["s-C"] = "SC",
 	["s-V"] = "SV",
-	["s-B"] = "SB",
+	["s-X"] = "SX",
+	["s-Z"] = "SZ",
 
 	["s-,"] = "LA",
 
