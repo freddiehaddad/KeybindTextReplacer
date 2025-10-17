@@ -20,6 +20,8 @@ local keybindReplacements = {
 	["s-D"] = "SD",
 	["s-F"] = "SF",
 
+	["s-Z"] = "SZ",
+	["s-X"] = "SX",
 	["s-C"] = "SC",
 	["s-V"] = "SV",
 	["s-B"] = "SB",
@@ -38,9 +40,11 @@ local keybindReplacements = {
 
 	["s-5"] = "LT",
 
-	["5"] = "LC",
-	["6"] = "LV",
-	["7"] = "LB",
+	["5"] = "LZ",
+	["6"] = "LX",
+	["7"] = "LC",
+	["8"] = "LV",
+	["9"] = "LB",
 
 	["Mouse Wheel Down"] = "WD",
 	["a-Mouse Wheel Down"] = "AWD",
