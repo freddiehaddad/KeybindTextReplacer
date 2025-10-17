@@ -11,11 +11,13 @@ local keybindReplacements = {
 	["c-B"] = "CB",
 
 	["c-A"] = "CA",
+	["c-C"] = "CC",
 	["c-S"] = "CS",
 	["c-D"] = "CD",
 	["c-F"] = "CF",
 
 	["s-A"] = "SA",
+	["s-C"] = "SC",
 	["s-S"] = "SS",
 	["s-D"] = "SD",
 	["s-F"] = "SF",
